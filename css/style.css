@@ -308,6 +308,54 @@ h1, h2, h3 { font-family: var(--font-serif); margin: 0; line-height: 1.3; }
 .nav__list > li > a.is-current { color: var(--berry); }
 .nav__list > li > a.is-current::after { transform: scaleX(1); }
 
+/* ===== 聯絡我們頁面 ===== */
+.contact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.contact-card { text-align: center; padding: 32px 20px; background: #fff; border: 1px solid var(--line); transition: transform .3s, border-color .3s, box-shadow .3s; }
+.contact-card:hover { transform: translateY(-6px); border-color: var(--pink-500); box-shadow: 0 14px 28px rgba(194,69,106,.12); }
+.contact-card > .bi { display: grid; place-items: center; width: 56px; height: 56px; margin: 0 auto 14px; border-radius: 50%; background: var(--pink-100); color: var(--pink-500); font-size: 24px; transition: background .3s, color .3s; }
+.contact-card:hover > .bi { background: var(--pink-500); color: #fff; }
+.contact-card h3 { font-size: 17px; letter-spacing: .1em; margin-bottom: 6px; }
+.contact-card p { margin: 0; color: var(--muted); overflow-wrap: anywhere; }
+.contact-card a:hover { color: var(--berry); text-decoration: underline; }
+
+.contact-main { background: var(--pink-100); }
+.contact-main__grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px, 5vw, 64px); align-items: start; }
+.section__head--left { text-align: left; margin-bottom: 28px; }
+.section__head--left::after { margin-left: 0; }
+.contact-form { display: grid; gap: 18px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.field label { display: block; font-size: 14px; margin-bottom: 6px; letter-spacing: .06em; }
+.field label b { color: var(--berry); }
+.field input, .field select, .field textarea {
+  width: 100%; font: inherit; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 2px;
+  padding: 11px 14px; min-height: 44px; transition: border-color .2s, box-shadow .2s;
+}
+.field textarea { resize: vertical; min-height: 140px; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--pink-500); box-shadow: 0 0 0 3px rgba(232,120,143,.2); }
+.field .is-invalid { border-color: var(--berry); background: #fff6f8; }
+.field__error { margin: 4px 0 0; min-height: 1.2em; font-size: 12px; color: var(--berry); }
+.contact-form .btn { justify-self: start; padding-inline: 32px; }
+.form-status { margin: 0; font-size: 14px; color: var(--muted); }
+.form-status.is-ok { color: #2f7d5b; }
+.form-status.is-error { color: var(--berry); }
+
+.contact-map-wrap { position: sticky; top: calc(var(--header-h, 120px) + 16px); }
+.contact-map { display: block; width: 100%; height: 420px; border: 1px solid var(--line); background: #fff; }
+.contact-map__link { display: inline-block; margin-top: 12px; font-size: 14px; color: var(--berry); border-bottom: 1px solid currentColor; }
+
+@media (max-width: 1023px) {
+  .contact-cards { grid-template-columns: repeat(2, 1fr); }
+  .contact-main__grid { grid-template-columns: 1fr; }
+  .contact-map-wrap { position: static; }
+}
+@media (max-width: 767px) {
+  .contact-cards { gap: 12px; }
+  .contact-card { padding: 22px 12px; }
+  .field-row { grid-template-columns: 1fr; }
+  .contact-map { height: 300px; }
+  .contact-form .btn { justify-self: stretch; }
+}
+
 /* ===== 圖示（Bootstrap Icons） ===== */
 .bi { line-height: 1; vertical-align: -0.12em; }
 .topbar .bi { color: var(--pink-500); margin-right: 2px; }

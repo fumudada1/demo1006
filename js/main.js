@@ -43,7 +43,9 @@
 
   /* ===== 渲染商品卡片 ===== */
   const renderProducts = () => {
-    $('#productGrid').innerHTML = PRODUCTS.map((p, i) => `
+    const grid = $('#productGrid');
+    if (!grid) return; // 非首頁沒有商品區
+    grid.innerHTML = PRODUCTS.map((p, i) => `
       <article class="card${p.feature ? ' card--feature' : ''}">
         <a class="card__img" href="${PRODUCT_URL}${p.id}" target="_blank" rel="noopener">
           <img src="${IMG}${p.img}" alt="${p.name}" loading="${i < 3 ? 'eager' : 'lazy'}">
@@ -160,25 +162,28 @@
   const dotsBox = $('#heroDots');
   let cur = 0;
   let timer;
-  slides.forEach((_, i) => {
+  (dotsBox ? slides : []).forEach((_, i) => {
     const d = document.createElement('button');
     d.setAttribute('aria-label', `第 ${i + 1} 張`);
     d.addEventListener('click', () => { go(i); restart(); });
     dotsBox.appendChild(d);
   });
-  const dots = $$('button', dotsBox);
+  const dots = dotsBox ? $$('button', dotsBox) : [];
   function go(n) {
+    if (!slides.length) return;
     cur = (n + slides.length) % slides.length;
     slides.forEach((s, i) => s.classList.toggle('is-active', i === cur));
     dots.forEach((d, i) => d.classList.toggle('is-active', i === cur));
   }
   function restart() {
     clearInterval(timer);
+    if (!slides.length) return;
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(() => go(cur + 1), 5000);
   }
+  const hero = $('.hero');
+  if (hero) {
   $('#heroPrev').addEventListener('click', () => { go(cur - 1); restart(); });
   $('#heroNext').addEventListener('click', () => { go(cur + 1); restart(); });
-  const hero = $('.hero');
   hero.addEventListener('mouseenter', () => clearInterval(timer));
   hero.addEventListener('mouseleave', restart);
   // 觸控滑動
@@ -188,6 +193,7 @@
     const dx = e.changedTouches[0].clientX - sx;
     if (Math.abs(dx) > 40) { go(cur + (dx < 0 ? 1 : -1)); restart(); }
   });
+  }
 
   /* ===== 回到頂端 ===== */
   $('#toTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
@@ -234,6 +240,9 @@
     ['.banner-strip', ''], ['.quick', ''], ['.section__head', ''],
     ['.card--feature', 'reveal--left'], ['.skin__list li', 'reveal--zoom'],
     ['.social__list li', 'reveal--zoom'], ['.footer__grid > div', ''], ['.footer__copy', ''],
+    // 聯絡我們頁面
+    ['.contact-card', 'reveal--zoom'],
+    ['.contact-form-wrap', 'reveal--left'], ['.contact-map-wrap', 'reveal--right'],
   ];
   const targets = [];
   revealRules.forEach(([sel, extra]) => $$(sel).forEach((el) => {
@@ -248,7 +257,7 @@
     targets.push(el);
   });
   // 同一列的元素依序延遲
-  ['.skin__list li', '.social__list li', '.footer__grid > div'].forEach((sel) => {
+  ['.skin__list li', '.social__list li', '.footer__grid > div', '.contact-card'].forEach((sel) => {
     $$(sel).forEach((el, i) => el.style.setProperty('--d', `${i * 0.12}s`));
   });
 
