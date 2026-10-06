@@ -53,7 +53,7 @@
           <p class="card__no">No.${String(i + 1).padStart(2, '0')}</p>
           <h3 class="card__name"><a href="${PRODUCT_URL}${p.id}" target="_blank" rel="noopener">${p.name}</a></h3>
           <p class="card__price" data-price="${p.price}">${money(p.price)}<span class="card__stock">現貨</span></p>
-          <button class="btn btn--primary btn--block" data-add="${p.id}">加入購物車</button>
+          <button class="btn btn--primary btn--block" data-add="${p.id}"><i class="bi bi-bag-plus" aria-hidden="true"></i> 加入購物車</button>
         </div>
       </article>`).join('');
   };
@@ -76,8 +76,8 @@
             <button data-inc="${c.id}" aria-label="增加數量">+</button>
           </div>
         </div>
-        <button class="ci__del" data-del="${c.id}" aria-label="移除商品">✕</button>
-      </li>`).join('') : '<li class="drawer__empty">購物車目前是空的</li>';
+        <button class="ci__del" data-del="${c.id}" aria-label="移除商品"><i class="bi bi-trash3" aria-hidden="true"></i></button>
+      </li>`).join('') : '<li class="drawer__empty"><i class="bi bi-bag-heart" aria-hidden="true"></i><br>購物車目前是空的</li>';
     $$('.card__price').forEach((el) => {
       el.firstChild.textContent = money(Number(el.dataset.price));
     });
@@ -192,8 +192,78 @@
   /* ===== 回到頂端 ===== */
   $('#toTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+  /* ===== 固定頁首高度（供錨點捲動預留位置） ===== */
+  const setHeaderH = () => {
+    // 手機版選單展開時不計入，避免捲動偏移過大
+    const h = $('.header').getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--header-h', `${Math.round(h)}px`);
+  };
+  setHeaderH();
+  addEventListener('resize', setHeaderH);
+
+  /* ===== 選單平滑捲動 ===== */
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  $$('.nav a[href^="#"]').forEach((a) => a.addEventListener('click', (e) => {
+    const target = a.hash === '#top' ? document.body : $(a.hash);
+    if (!target) return;
+    e.preventDefault();
+    const top = a.hash === '#top' ? 0 : target.getBoundingClientRect().top + scrollY - $('.header').offsetHeight - 12;
+    window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+    history.replaceState(null, '', a.hash);
+    // 手機版點選後收合選單
+    nav.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  /* 捲動時標示目前所在區塊的選單項目 */
+  const spyLinks = $$('.nav__list > li > a[href^="#"]').filter((a) => a.hash !== '#top');
+  const spyMap = spyLinks.map((a) => ({ a, el: $(a.hash) })).filter((x) => x.el);
+  const spy = () => {
+    const y = scrollY + $('.header').offsetHeight + 80;
+    let cur = null;
+    spyMap.forEach(({ a, el }) => { if (el.offsetTop <= y) cur = a; });
+    // 同一個錨點對應多個選單項目時，僅標示第一個
+    const first = cur && spyMap.find((x) => x.el === $(cur.hash)).a;
+    spyLinks.forEach((a) => a.classList.toggle('is-current', a === first));
+  };
+  addEventListener('scroll', spy, { passive: true });
+
+  /* ===== 滾動淡入 ===== */
+  renderProducts(); // 先產生商品卡片，才能掛上淡入效果
+  const revealRules = [
+    ['.banner-strip', ''], ['.quick', ''], ['.section__head', ''],
+    ['.card--feature', 'reveal--left'], ['.skin__list li', 'reveal--zoom'],
+    ['.social__list li', 'reveal--zoom'], ['.footer__grid > div', ''], ['.footer__copy', ''],
+  ];
+  const targets = [];
+  revealRules.forEach(([sel, extra]) => $$(sel).forEach((el) => {
+    el.classList.add('reveal');
+    if (extra) el.classList.add(extra);
+    targets.push(el);
+  }));
+  // 商品卡片依欄位錯開延遲，呈現依序浮現
+  $$('.card:not(.card--feature)').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.setProperty('--d', `${(i % 4) * 0.12}s`);
+    targets.push(el);
+  });
+  // 同一列的元素依序延遲
+  ['.skin__list li', '.social__list li', '.footer__grid > div'].forEach((sel) => {
+    $$(sel).forEach((el, i) => el.style.setProperty('--d', `${i * 0.12}s`));
+  });
+
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    targets.forEach((el) => io.observe(el));
+  } else {
+    targets.forEach((el) => el.classList.add('is-visible'));
+  }
+
   /* ===== 初始化 ===== */
-  renderProducts();
   renderCart();
   go(0);
   restart();
