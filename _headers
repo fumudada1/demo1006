@@ -1,0 +1,4 @@
+# Netlify / Cloudflare Pages：files 資料夾內的檔案一律強制下載，不在瀏覽器內開啟
+/files/*
+  Content-Disposition: attachment
+  X-Content-Type-Options: nosniff

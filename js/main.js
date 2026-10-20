@@ -240,6 +240,7 @@
     ['.banner-strip', ''], ['.quick', ''], ['.section__head', ''],
     ['.card--feature', 'reveal--left'], ['.skin__list li', 'reveal--zoom'],
     ['.social__list li', 'reveal--zoom'], ['.footer__grid > div', ''], ['.footer__copy', ''],
+    ['.download-item', ''],
     // 聯絡我們頁面
     ['.contact-card', 'reveal--zoom'],
     ['.contact-form-wrap', 'reveal--left'], ['.contact-map-wrap', 'reveal--right'],

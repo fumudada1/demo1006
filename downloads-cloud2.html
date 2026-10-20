@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>面膜雲端相關檔案下載2｜依洛嘉面膜保養官方旗艦店</title>
+  <meta name="description" content="依洛嘉面膜雲端相關檔案下載清單（Google 雲端硬碟）。">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700;900&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="top">
+
+  <a class="skip-link" href="#main">跳到主要內容</a>
+
+  <!-- 1. 頂端工具列 -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <p class="topbar__promo"><i class="bi bi-gift" aria-hidden="true"></i> 會員註冊享好禮・加入官方 LINE 領優惠</p>
+      <ul class="topbar__links" id="topbarLinks">
+        <li class="dropdown">
+          <button class="dropdown__btn" aria-expanded="false"><i class="bi bi-person-heart" aria-hidden="true"></i> 會員中心</button>
+          <ul class="dropdown__menu">
+            <li><a href="https://www.elg.com.tw/account">會員中心</a></li>
+            <li><a href="https://www.elg.com.tw/account/edit">我的資料</a></li>
+            <li><a href="https://www.elg.com.tw/account/reward">我的紅利</a></li>
+            <li><a href="https://www.elg.com.tw/account/coupon">我的優惠券</a></li>
+            <li><a href="https://www.elg.com.tw/account/referral_marketing">親友推薦</a></li>
+            <li><a href="https://www.elg.com.tw/wishlist">願望清單</a></li>
+            <li><a href="https://www.elg.com.tw/compare">商品比較</a></li>
+            <li><a href="https://www.elg.com.tw/newsletter">我的訂閱</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <button class="dropdown__btn" aria-expanded="false"><i class="bi bi-receipt" aria-hidden="true"></i> 我的訂單</button>
+          <ul class="dropdown__menu">
+            <li><a href="https://www.elg.com.tw/account/order/payment">填寫匯款單</a></li>
+            <li><a href="https://www.elg.com.tw/order">我的訂單</a></li>
+            <li><a href="https://www.elg.com.tw/account/return">退/換貨紀錄</a></li>
+          </ul>
+        </li>
+        <li><a href="https://www.elg.com.tw/login"><i class="bi bi-box-arrow-in-right" aria-hidden="true"></i> 登入</a></li>
+        <li><a href="https://www.elg.com.tw/guestorder"><i class="bi bi-search-heart" aria-hidden="true"></i> 我要查訂單</a></li>
+        <li class="dropdown">
+          <button class="dropdown__btn" aria-expanded="false"><i class="bi bi-headset" aria-hidden="true"></i> 找店長</button>
+          <ul class="dropdown__menu">
+            <li><a href="contact.html">線上留言</a></li>
+            <li><a href="mailto:sunnyelg1118@gmail.com">電子郵件</a></li>
+            <li><a href="https://line.naver.jp/ti/p/~@def6392t">LINE@</a></li>
+            <li><a href="https://www.messenger.com/t/elgshop">Facebook 訊息</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <button class="dropdown__btn" aria-expanded="false"><i class="bi bi-currency-exchange" aria-hidden="true"></i> <span id="currencyBtn">TWD</span></button>
+          <ul class="dropdown__menu">
+            <li><button type="button" data-currency="TWD">$ TWD</button></li>
+            <li><button type="button" data-currency="USD">$ USD</button></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2. 頁首 -->
+  <header class="header">
+    <div class="container header__inner">
+      <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <a class="brand" href="index.html" aria-label="依洛嘉面膜保養官方旗艦店 首頁">
+        <img class="brand__logo" src="images/logo.png" alt="依洛嘉 E.L.G Logo" width="100" height="100">
+        <span class="brand__text">
+          <span class="brand__name">依洛嘉面膜保養官方旗艦店</span>
+          <span class="brand__slogan">平價保養品第一品牌</span>
+        </span>
+      </a>
+
+      <form class="search" role="search" action="https://www.elg.com.tw/product/search" method="get" target="_blank">
+        <label class="sr-only" for="q">搜尋商品</label>
+        <input id="q" name="search" type="search" placeholder="搜尋商品，例如：面膜、肽精華">
+        <button type="submit" aria-label="搜尋">
+          <i class="bi bi-search" aria-hidden="true"></i>
+        </button>
+      </form>
+
+      <button class="cart-btn" id="cartBtn" aria-label="開啟購物車">
+        <i class="bi bi-bag-heart" aria-hidden="true"></i>
+        <span class="cart-btn__count" id="cartCount">0</span>
+      </button>
+    </div>
+
+    <!-- 3. 主選單 -->
+    <nav class="nav" id="mainNav" aria-label="主選單">
+      <ul class="nav__list container">
+        <li><a href="index.html"><i class="bi bi-house-heart" aria-hidden="true"></i>首頁</a></li>
+        <li><a href="index.html#latest"><i class="bi bi-stars" aria-hidden="true"></i>新品推薦</a></li>
+
+        <li class="has-sub nav__mega">
+          <a href="index.html#categories"><i class="bi bi-droplet-half" aria-hidden="true"></i>保養</a>
+          <button class="sub-toggle" aria-label="展開保養子選單" aria-expanded="false"></button>
+          <div class="sub sub--mega">
+            <div class="sub__col">
+              <a class="sub__title" href="https://www.elg.com.tw/skincare-1"><i class="bi bi-droplet" aria-hidden="true"></i>基礎保養</a>
+              <ul>
+                <li><a href="https://www.elg.com.tw/essence"><i class="bi bi-moisture" aria-hidden="true"></i>化妝水 / 精華</a></li>
+                <li><a href="https://www.elg.com.tw/moisturise"><i class="bi bi-cup-straw" aria-hidden="true"></i>乳液 / 面霜</a></li>
+                <li><a href="https://www.elg.com.tw/oil-ance-control"><i class="bi bi-bandaid" aria-hidden="true"></i>控油 / 抗痘</a></li>
+                <li><a href="https://www.elg.com.tw/eyecare"><i class="bi bi-eye" aria-hidden="true"></i>眼部保養</a></li>
+                <li><a href="https://www.elg.com.tw/cleanser"><i class="bi bi-water" aria-hidden="true"></i>清潔洗卸</a></li>
+                <li><a href="https://www.elg.com.tw/intimatecare"><i class="bi bi-shield-check" aria-hidden="true"></i>私密保養</a></li>
+              </ul>
+            </div>
+            <div class="sub__col">
+              <a class="sub__title" href="https://www.elg.com.tw/mask"><i class="bi bi-flower1" aria-hidden="true"></i>面膜系列</a>
+              <ul>
+                <li><a href="https://www.elg.com.tw/hydratingmask"><i class="bi bi-droplet-fill" aria-hidden="true"></i>補水 / 保濕面膜</a></li>
+                <li><a href="https://www.elg.com.tw/repairingmask"><i class="bi bi-bandaid-fill" aria-hidden="true"></i>修護面膜</a></li>
+                <li><a href="https://www.elg.com.tw/antiagingbrighteningmask"><i class="bi bi-brightness-high" aria-hidden="true"></i>抗老 / 亮白面膜</a></li>
+                <li><a href="https://www.elg.com.tw/eyemask"><i class="bi bi-eye-fill" aria-hidden="true"></i>眼膜</a></li>
+                <li><a href="https://www.elg.com.tw/lipmask"><i class="bi bi-emoji-kiss" aria-hidden="true"></i>唇膜</a></li>
+                <li><a href="https://www.elg.com.tw/handfootcare"><i class="bi bi-hand-thumbs-up" aria-hidden="true"></i>手足保養</a></li>
+                <li><a href="https://www.elg.com.tw/othermask-2"><i class="bi bi-bullseye" aria-hidden="true"></i>局部保養</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="has-sub">
+          <a href="index.html#categories"><i class="bi bi-palette2" aria-hidden="true"></i>彩妝</a>
+          <button class="sub-toggle" aria-label="展開彩妝子選單" aria-expanded="false"></button>
+          <ul class="sub">
+            <li><a href="https://www.elg.com.tw/face"><i class="bi bi-emoji-smile" aria-hidden="true"></i>臉部彩妝</a></li>
+            <li><a href="https://www.elg.com.tw/eye"><i class="bi bi-eye" aria-hidden="true"></i>眼妝</a></li>
+            <li><a href="https://www.elg.com.tw/lip"><i class="bi bi-heart-fill" aria-hidden="true"></i>唇妝</a></li>
+            <li><a href="https://www.elg.com.tw/settingmakeup"><i class="bi bi-brush" aria-hidden="true"></i>定妝 / 修容</a></li>
+          </ul>
+        </li>
+
+        <li class="has-sub">
+          <a href="index.html#categories"><i class="bi bi-capsule-pill" aria-hidden="true"></i>膠囊系列</a>
+          <button class="sub-toggle" aria-label="展開膠囊系列子選單" aria-expanded="false"></button>
+          <ul class="sub">
+            <li><a href="https://www.elg.com.tw/capsules"><i class="bi bi-capsule" aria-hidden="true"></i>保養膠囊</a></li>
+            <li><a href="https://www.elg.com.tw/timecapsules"><i class="bi bi-hourglass-split" aria-hidden="true"></i>時空膠囊</a></li>
+            <li><a href="https://www.elg.com.tw/haircapsules"><i class="bi bi-scissors" aria-hidden="true"></i>護髮膠囊</a></li>
+          </ul>
+        </li>
+
+        <li class="has-sub">
+          <a href="index.html#categories"><i class="bi bi-cloud-haze2" aria-hidden="true"></i>香氛 &amp; 放鬆保養</a>
+          <button class="sub-toggle" aria-label="展開香氛子選單" aria-expanded="false"></button>
+          <ul class="sub">
+            <li><a href="https://www.elg.com.tw/essentialoil"><i class="bi bi-droplet-half" aria-hidden="true"></i>精油</a></li>
+            <li><a href="https://www.elg.com.tw/fragrance"><i class="bi bi-flower3" aria-hidden="true"></i>香水</a></li>
+            <li><a href="https://www.elg.com.tw/eysspa"><i class="bi bi-moon-stars" aria-hidden="true"></i>SPA蒸氣眼罩</a></li>
+          </ul>
+        </li>
+
+        <li class="has-sub">
+          <a href="index.html#categories"><i class="bi bi-gift" aria-hidden="true"></i>套裝/活動組合</a>
+          <button class="sub-toggle" aria-label="展開套裝子選單" aria-expanded="false"></button>
+          <ul class="sub">
+            <li><a href="https://www.elg.com.tw/limitededitionset"><i class="bi bi-award" aria-hidden="true"></i>限定組合</a></li>
+            <li><a href="https://www.elg.com.tw/giftbox"><i class="bi bi-gift-fill" aria-hidden="true"></i>禮盒／節日限定</a></li>
+            <li><a href="https://www.elg.com.tw/product/category&amp;path=316_318"><i class="bi bi-tags" aria-hidden="true"></i>促銷／新品推薦</a></li>
+          </ul>
+        </li>
+
+        <li class="has-sub">
+          <a href="index.html#skin"><i class="bi bi-hearts" aria-hidden="true"></i>推薦清單</a>
+          <button class="sub-toggle" aria-label="展開推薦清單子選單" aria-expanded="false"></button>
+          <ul class="sub">
+            <li><a href="https://www.elg.com.tw/drynessskin"><i class="bi bi-droplet" aria-hidden="true"></i>乾燥肌</a></li>
+            <li><a href="https://www.elg.com.tw/sensitiveskin"><i class="bi bi-heart-pulse" aria-hidden="true"></i>敏感肌</a></li>
+            <li><a href="https://www.elg.com.tw/acnepimpleskin"><i class="bi bi-bandaid" aria-hidden="true"></i>痘痘粉刺肌</a></li>
+            <li><a href="https://www.elg.com.tw/ageing"><i class="bi bi-sun" aria-hidden="true"></i>暗沉／老化</a></li>
+            <li><a href="https://www.elg.com.tw/travel"><i class="bi bi-airplane" aria-hidden="true"></i>旅行便攜</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="container section downloads" aria-labelledby="dlTitle">
+      <header class="section__head">
+        <p class="section__eyebrow">CLOUD DOWNLOADS</p>
+        <h1 id="dlTitle">面膜雲端相關檔案下載2</h1>
+      </header>
+      <ul class="download-list">
+        <li class="download-item">
+          <a href="https://drive.google.com/file/d/1xvIQcwsLmpJXsuzO8xvZRbJ6C8hdTk2K/view?usp=drivesdk" target="_blank" rel="noopener" data-meta="PDF・82 KB"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>01.辦理本局資通系統委外廠商查核工作函.pdf<i class="bi bi-cloud-arrow-down" aria-hidden="true"></i></a>
+        </li>
+        <li class="download-item">
+          <a href="https://drive.google.com/file/d/1E3jdoFxY-bTDBaoWe0smwSRAkUyGocOo/view?usp=drivesdk" target="_blank" rel="noopener" data-meta="PDF・2.8 MB"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>02.資通安全管理法_防護基準_11501-v3.pdf<i class="bi bi-cloud-arrow-down" aria-hidden="true"></i></a>
+        </li>
+        <li class="download-item">
+          <a href="https://drive.google.com/file/d/1Uy-NQmWvc6coUYwTB6EmuAizOVNdwod0/view?usp=drivesdk" target="_blank" rel="noopener" data-meta="PDF・607 KB"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>03.20260827_145209.pdf<i class="bi bi-cloud-arrow-down" aria-hidden="true"></i></a>
+        </li>
+        <li class="download-item">
+          <a href="https://drive.google.com/file/d/1TTxZgfmqW97TymdG7r1aKrfhR0l03Xkn/view?usp=drivesdk" target="_blank" rel="noopener" data-meta="PDF・204 KB"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>04.ISO27001-BSI2022轉版證.pdf<i class="bi bi-cloud-arrow-down" aria-hidden="true"></i></a>
+        </li>
+        <li class="download-item">
+          <a href="https://drive.google.com/file/d/12M-rxfJe8XMaIsi6IBP3aPbyS-Ik3gl-/view?usp=drivesdk" target="_blank" rel="noopener" data-meta="PDF・231 KB"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>05.2022-ISO27001證書-2013版.pdf<i class="bi bi-cloud-arrow-down" aria-hidden="true"></i></a>
+        </li>
+        <li class="download-item">
+          <a href="https://drive.google.com/file/d/1xwLxWysPqQVxmJrg_hMOdvIatbYc9JBe/view?usp=drivesdk" target="_blank" rel="noopener" data-meta="PPTX・19.9 MB"><i class="bi bi-file-earmark-slides" aria-hidden="true"></i>AI_Development_Modes.pptx<i class="bi bi-cloud-arrow-down" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- 10. 頁尾 -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <h3>依洛嘉國際實業有限公司</h3>
+        <p><i class="bi bi-building" aria-hidden="true"></i>統一編號：53796463</p>
+        <p><i class="bi bi-clock" aria-hidden="true"></i>營業時間：周一至周五上午 09：00 -下午 05：00</p>
+        <p><i class="bi bi-geo-alt" aria-hidden="true"></i>服務地址：台南市佳里區佳興里宅興二街600號</p>
+      </div>
+      <div>
+        <h3>聯絡我們</h3>
+        <p><i class="bi bi-telephone" aria-hidden="true"></i>客服電話：<a href="tel:+88667266551">(06)7266551</a></p>
+        <p><i class="bi bi-printer" aria-hidden="true"></i>傳真電話：(06)7263656</p>
+        <p><i class="bi bi-envelope" aria-hidden="true"></i>E - m a i l : <a href="mailto:sunnyelg1118@gmail.com">sunnyelg1118@gmail.com</a></p>
+      </div>
+      <div>
+        <h3>官方社群</h3>
+        <p><i class="bi bi-line" aria-hidden="true"></i>官方LINE ID：@def6392t</p>
+        <p><i class="bi bi-facebook" aria-hidden="true"></i>官方 FB：E.L.G依洛嘉</p>
+        <p><i class="bi bi-instagram" aria-hidden="true"></i>官方 IG：e.l.g_mask_taiwan</p>
+        <p><i class="bi bi-youtube" aria-hidden="true"></i>官方YouTube：E.L.G依洛嘉國際</p>
+      </div>
+      <div>
+        <h3>購物資訊</h3>
+        <p><i class="bi bi-search-heart" aria-hidden="true"></i><a href="https://www.elg.com.tw/guestorder">我要查訂單</a></p>
+        <p><i class="bi bi-arrow-repeat" aria-hidden="true"></i><a href="https://www.elg.com.tw/account/return">退/換貨紀錄</a></p>
+        <p><i class="bi bi-chat-heart" aria-hidden="true"></i><a href="contact.html">線上留言</a></p>
+      </div>
+    </div>
+    <p class="footer__copy">SINCE 2004 (C) by ELG Taiwan</p>
+  </footer>
+
+  <!-- 浮動按鈕 -->
+  <div class="float">
+    <a class="float__btn" href="https://line.naver.jp/ti/p/~@def6392t" target="_blank" rel="noopener" aria-label="LINE 客服"><i class="bi bi-line" aria-hidden="true"></i></a>
+    <a class="float__btn" href="https://www.messenger.com/t/elgshop" target="_blank" rel="noopener" aria-label="Facebook 訊息"><i class="bi bi-messenger" aria-hidden="true"></i></a>
+    <button class="float__btn" id="toTop" aria-label="回到頂端"><i class="bi bi-arrow-up" aria-hidden="true"></i></button>
+  </div>
+
+  <!-- 購物車抽屜 -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="drawer" aria-label="購物車" aria-hidden="true">
+    <div class="drawer__head">
+      <h2><i class="bi bi-bag-heart" aria-hidden="true"></i> 購物車</h2>
+      <button id="drawerClose" aria-label="關閉購物車"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <ul class="drawer__list" id="cartList"></ul>
+    <div class="drawer__foot">
+      <p class="drawer__total">合計 <strong id="cartTotal">$0</strong></p>
+      <button class="btn btn--primary btn--block" id="checkoutBtn">前往結帳</button>
+      <button class="btn-link" id="clearCart">清空購物車</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

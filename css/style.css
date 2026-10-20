@@ -308,6 +308,32 @@ h1, h2, h3 { font-family: var(--font-serif); margin: 0; line-height: 1.3; }
 .nav__list > li > a.is-current { color: var(--berry); }
 .nav__list > li > a.is-current::after { transform: scaleX(1); }
 
+/* ===== 檔案下載頁面 ===== */
+.downloads { max-width: 860px; }
+.section__head h1 { font-size: clamp(26px, 4vw, 38px); font-weight: 900; letter-spacing: .1em; }
+.download-list { display: grid; gap: 12px; counter-reset: dl; }
+.download-item { display: flex; align-items: center; gap: 14px; counter-increment: dl; }
+/* 序號用 CSS 計數器產生，HTML 內不需要額外標籤 */
+.download-item::before { content: counter(dl, decimal-leading-zero); flex: none; width: 1.8em; font-family: var(--font-en); font-style: italic; color: var(--pink-500); }
+.download-item a {
+  position: relative; overflow: hidden; z-index: 0; flex: 1; min-width: 0; display: flex; align-items: center; gap: 14px;
+  padding: 16px 20px; background: #fff; border: 1px solid var(--line); font-weight: 500; overflow-wrap: anywhere;
+  transition: border-color .3s, transform .3s, box-shadow .3s;
+}
+.download-item a::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--pink-100); transform: translateX(-101%); transition: transform .4s ease; }
+.download-item a:hover { border-color: var(--pink-500); transform: translateX(4px); box-shadow: 0 8px 18px rgba(194,69,106,.1); }
+.download-item a:hover::before { transform: none; }
+.download-item a > .bi:first-child { flex: none; font-size: 24px; color: var(--berry); }
+/* 檔案類型與大小：讀取連結的 data-meta 屬性 */
+.download-item a::after { content: attr(data-meta); order: 1; margin-left: auto; padding-left: 12px; font-size: 12px; font-weight: 400; color: var(--muted); white-space: nowrap; }
+.download-item .bi-download { order: 2; flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--pink-100); color: var(--pink-500); transition: background .3s, color .3s; }
+.download-item a:hover .bi-download { background: var(--pink-500); color: #fff; }
+@media (max-width: 767px) {
+  .download-item::before { display: none; }
+  .download-item a { gap: 10px; padding: 14px; }
+  .download-item a::after { display: none; }
+}
+
 /* ===== 聯絡我們頁面 ===== */
 .contact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .contact-card { text-align: center; padding: 32px 20px; background: #fff; border: 1px solid var(--line); transition: transform .3s, border-color .3s, box-shadow .3s; }
